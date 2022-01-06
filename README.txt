@@ -92,3 +92,9 @@ view the mailing list archives and join the mailing list:
 
 http://groups.google.com/group/alembic-discussion
 
+
+```
+sudo apt install libhdf5-dev
+cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
+sudo cmake --build build --parallel --target install
+```
