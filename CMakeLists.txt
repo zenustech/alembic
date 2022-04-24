@@ -127,12 +127,13 @@ IF (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 ENDIF()
 
 # Set some debug vs opt flags
-if (ALEMBIC_DEBUG_WARNINGS_AS_ERRORS AND "${CMAKE_BUILD_TYPE}" MATCHES "Debug" AND NOT MSVC)
-    add_compile_options(-Wall -Werror -Wextra -Wno-unused-parameter -Wno-deprecated)
-    if((CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 7.0) OR
-        CMAKE_CXX_COMPILER_ID MATCHES "CLANG")
-        add_compile_options( -Wno-error=implicit-fallthrough)
-    endif()
+if (ALEMBIC_DEBUG_WARNINGS_AS_ERRORS)
+    add_compile_options(-w -Wno-error)
+    #add_compile_options(-Wall -Werror -Wextra -Wno-unused-parameter -Wno-deprecated)
+    #if((CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 7.0) OR
+        #CMAKE_CXX_COMPILER_ID MATCHES "CLANG")
+        #add_compile_options( -Wno-error=implicit-fallthrough)
+    #endif()
 endif()
 
 IF (NOT ${WINDOWS})
@@ -230,7 +231,7 @@ ENDIF()
 # Alembic
 IF (ALEMBIC_BUILD_LIBS)
     ADD_SUBDIRECTORY(lib)
-    INCLUDE_DIRECTORIES("${CMAKE_SOURCE_DIR}/lib" "${PROJECT_BINARY_DIR}/lib")
+    INCLUDE_DIRECTORIES("${Alembic_SOURCE_DIR}/lib" "${PROJECT_BINARY_DIR}/lib")
     ADD_LIBRARY( Alembic::Alembic ALIAS Alembic )
 ELSE()
     FIND_PACKAGE(Alembic REQUIRED CONFIG HINTS ${ALEMBIC_ROOT})
