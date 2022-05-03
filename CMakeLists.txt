@@ -127,8 +127,12 @@ IF (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 ENDIF()
 
 # Set some debug vs opt flags
-if (ALEMBIC_DEBUG_WARNINGS_AS_ERRORS AND NOT MSVC)
-    add_compile_options(-w -Wno-error)
+if (ALEMBIC_DEBUG_WARNINGS_AS_ERRORS)
+    if (MSVC)
+        add_compile_options(-w)
+    else()
+        add_compile_options(-w -Wno-error)
+    endif()
     #add_compile_options(-Wall -Werror -Wextra -Wno-unused-parameter -Wno-deprecated)
     #if((CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 7.0) OR
         #CMAKE_CXX_COMPILER_ID MATCHES "CLANG")
