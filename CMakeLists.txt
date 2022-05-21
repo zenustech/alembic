@@ -219,7 +219,7 @@ ENDIF()
 # IlmBase
 #INCLUDE("./cmake/AlembicIlmBase.cmake")
 if (NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/openexr/CMakeLists.txt)
-    message(FATAL_ERROR "git submodule update --init --recursive")
+    message(WARNING "Please run: git submodule update --init --recursive")
 endif()
 add_subdirectory(openexr)
 
