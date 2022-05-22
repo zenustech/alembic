@@ -338,16 +338,16 @@ info_cfg_option(ALEMBIC_DEBUG_WARNINGS_AS_ERRORS)
 info_cfg_option(PYALEMBIC_PYTHON_MAJOR)
 info_cfg_option(DOCS_PATH)
 MESSAGE("${_config_msg}")
-install(
-    EXPORT FxxkIlmTargets
-    FILE FxxkIlmConfig.cmake
-    NAMESPACE FxxkIlm::
-    DESTINATION lib/cmake/FxxkIlm
-    )
-install(TARGETS Iex EXPORT FxxkIlmTargets)
-install(TARGETS IlmThread EXPORT FxxkIlmTargets)
-install(TARGETS OpenEXR EXPORT FxxkIlmTargets)
-install(TARGETS Imath EXPORT FxxkIlmTargets)
+#install(
+    #EXPORT FxxkIlmTargets
+    #FILE FxxkIlmConfig.cmake
+    #NAMESPACE FxxkIlm::
+    #DESTINATION lib/cmake/FxxkIlm
+    #)
+#install(TARGETS Iex EXPORT FxxkIlmTargets)
+#install(TARGETS IlmThread EXPORT FxxkIlmTargets)
+#install(TARGETS OpenEXR EXPORT FxxkIlmTargets)
+#install(TARGETS Imath EXPORT FxxkIlmTargets)
 target_link_libraries(Alembic PRIVATE $<BUILD_INTERFACE:Iex>)
 target_link_libraries(Alembic PRIVATE $<BUILD_INTERFACE:IlmThread>)
 target_link_libraries(Alembic PRIVATE $<BUILD_INTERFACE:OpenEXR>)

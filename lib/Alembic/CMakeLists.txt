@@ -79,11 +79,11 @@ TARGET_LINK_LIBRARIES(Alembic
   )
 
 SET( ALEMBIC_LIB_INSTALL_DIR lib CACHE PATH "Where to install the Alembic libs")
-INSTALL(TARGETS Alembic
-        EXPORT AlembicTargets
-        LIBRARY DESTINATION ${ALEMBIC_LIB_INSTALL_DIR}
-        ARCHIVE DESTINATION ${ALEMBIC_LIB_INSTALL_DIR}
-        RUNTIME DESTINATION ${ALEMBIC_LIB_INSTALL_DIR})
+#INSTALL(TARGETS Alembic
+        #EXPORT AlembicTargets
+        #LIBRARY DESTINATION ${ALEMBIC_LIB_INSTALL_DIR}
+        #ARCHIVE DESTINATION ${ALEMBIC_LIB_INSTALL_DIR}
+        #RUNTIME DESTINATION ${ALEMBIC_LIB_INSTALL_DIR})
 
 #-******************************************************************************
 # PACKAGE EXPORTS
@@ -109,20 +109,20 @@ WRITE_BASIC_PACKAGE_VERSION_FILE(
     AnyNewerVersion
     )
 
-EXPORT(TARGETS
-    Alembic
-    FILE
-    "${CMAKE_CURRENT_BINARY_DIR}/${alembic_targets_file}"
-    NAMESPACE
-    Alembic::
-    )
+#EXPORT(TARGETS
+    #Alembic
+    #FILE
+    #"${CMAKE_CURRENT_BINARY_DIR}/${alembic_targets_file}"
+    #NAMESPACE
+    #Alembic::
+    #)
 
-INSTALL(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/AlembicConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/AlembicConfigVersion.cmake"
-    DESTINATION
-    ${ConfigPackageLocation}
-    )
+#INSTALL(FILES
+    #"${CMAKE_CURRENT_BINARY_DIR}/AlembicConfig.cmake"
+    #"${CMAKE_CURRENT_BINARY_DIR}/AlembicConfigVersion.cmake"
+    #DESTINATION
+    #${ConfigPackageLocation}
+    #)
 
 IF (DOCS_PATH)
     IF(NOT DOXYGEN_FOUND)
@@ -137,12 +137,12 @@ IF (DOCS_PATH)
 ENDIF()
 
 
-INSTALL(EXPORT
-    AlembicTargets
-    FILE
-    ${alembic_targets_file}
-    NAMESPACE
-    Alembic::
-    DESTINATION
-    ${ConfigPackageLocation}
-    )
+#INSTALL(EXPORT
+    #AlembicTargets
+    #FILE
+    #${alembic_targets_file}
+    #NAMESPACE
+    #Alembic::
+    #DESTINATION
+    #${ConfigPackageLocation}
+    #)
